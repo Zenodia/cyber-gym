@@ -1,0 +1,12 @@
+{
+  "scenario_id": "process-chain-001",
+  "title": "Unusual process ancestry",
+  "technique": "T1059",
+  "expected_detection": "A script interpreter started by an unusual office-process parent, followed by a network connection.",
+  "expected_event_kinds": ["process", "process", "network"],
+  "events": [
+    {"kind": "process", "image": "office_app.exe", "parent_image": "explorer.exe", "user": "demo_user"},
+    {"kind": "process", "image": "script_interpreter.exe", "parent_image": "office_app.exe", "user": "demo_user"},
+    {"kind": "network", "image": "script_interpreter.exe", "destination_category": "test-endpoint", "user": "demo_user"}
+  ]
+}

@@ -1,0 +1,1 @@
+{"timestamp":"2026-02-01T10:12:00Z","source":"approved-sanitized-export","event":{"kind":"authentication","outcome":"failure","method":"interactive","source_category":"organization-managed-endpoint","user":"redacted-user"},"label":{"anomalous":true,"technique":"T1110","expected_detection":"Repeated authentication failures require review."}}

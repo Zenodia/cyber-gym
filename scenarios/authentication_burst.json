@@ -1,0 +1,14 @@
+{
+  "scenario_id": "authentication-burst-001",
+  "title": "Authentication burst followed by access",
+  "technique": "T1110",
+  "expected_detection": "Several unsuccessful interactive authentications from one simulated source, followed by one successful authentication and access to a protected service.",
+  "expected_event_kinds": ["authentication", "authentication", "authentication", "authentication", "service_access"],
+  "events": [
+    {"kind": "authentication", "outcome": "failure", "method": "interactive", "source_category": "test-client", "user": "demo_user"},
+    {"kind": "authentication", "outcome": "failure", "method": "interactive", "source_category": "test-client", "user": "demo_user"},
+    {"kind": "authentication", "outcome": "failure", "method": "interactive", "source_category": "test-client", "user": "demo_user"},
+    {"kind": "authentication", "outcome": "success", "method": "interactive", "source_category": "test-client", "user": "demo_user"},
+    {"kind": "service_access", "service_category": "protected-demo-service", "outcome": "success", "user": "demo_user"}
+  ]
+}

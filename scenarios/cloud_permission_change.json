@@ -1,0 +1,12 @@
+{
+  "scenario_id": "cloud-permission-change-001",
+  "title": "Cloud permission change followed by new credential use",
+  "technique": "T1098",
+  "expected_detection": "A role assignment change is followed by successful use of a newly represented service identity in the same simulated workload.",
+  "expected_event_kinds": ["cloud_audit", "identity_change", "cloud_api"],
+  "events": [
+    {"kind": "cloud_audit", "action": "role-assignment-request", "resource_category": "demo-workload", "actor": "demo_admin"},
+    {"kind": "identity_change", "action": "role-assignment-applied", "identity_category": "demo-service-identity", "actor": "demo_admin"},
+    {"kind": "cloud_api", "action": "protected-read", "identity_category": "demo-service-identity", "outcome": "success"}
+  ]
+}
